@@ -20,7 +20,8 @@ def send_message():
     }
     """
     data = request.get_json()
-    sender_id = get_jwt_identity()
+    sender_id = int(get_jwt_identity())
+    print(sender_id)
     receiver_id = data.get('receiver_id')
     content = data.get('content')
     language_code = data.get('language_code')
@@ -73,7 +74,7 @@ def send_message():
             'translated_at': translation.translated_at.isoformat() if translation.translated_at else None
         }
     }
-    # Emit the new message to the room so connected clients can update in real time
+    print(room)
     socketio.emit('new_message', message_data, room=room)
 
     return jsonify({

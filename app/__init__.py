@@ -15,7 +15,7 @@ jwt = JWTManager()
 socketio = SocketIO(cors_allowed_origins="*", async_mode='threading')
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder='static')
     # Application configurations
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", None)
     app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", 'supersecretkey')
@@ -29,7 +29,9 @@ def create_app():
     db.init_app(app)
     jwt.init_app(app)
     socketio.init_app(app)
-
+    
+    from . import socket_events
+    
     # Register blueprints
     from .apis.auth import auth
     from .apis.communication import communication

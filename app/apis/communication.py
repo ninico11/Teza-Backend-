@@ -13,5 +13,5 @@ def translate_message():
     translated_text = translate_message_event(content, requested_language)
 
     return jsonify({
-        'translated_message': translated_text,
+        'translatedText': translated_text,
     }), 201

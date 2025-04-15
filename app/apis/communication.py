@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify
+import json
 from ..tools.translation import translate_message_event
 
 communication = Blueprint('communication', __name__)
@@ -11,7 +12,9 @@ def translate_message():
 
     # Translate the message using the provided translation function
     translated_text = translate_message_event(content, requested_language)
-
+    if not isinstance(translated_text, dict):
+                translated_text = json.loads(translated_text)
+    
     return jsonify({
-        'translatedText': translated_text,
+        'translatedText': translated_text["translated_message"],
     }), 201

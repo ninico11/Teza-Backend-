@@ -5,3 +5,9 @@ app/__pycache__/sockets.cpython-39.pyc
 app/apis/__pycache__/auth.cpython-39.pyc
 app/apis/__pycache__/communication.cpython-39.pyc
 app/tools/__pycache__/translation.cpython-39.pyc
+app/distilbert_sentiment_model/config.json
+app/distilbert_sentiment_model/model.safetensors
+app/distilbert_sentiment_model/special_tokens_map.json
+app/distilbert_sentiment_model/tokenizer_config.json
+app/distilbert_sentiment_model/tokenizer.json
+app/distilbert_sentiment_model/vocab.txt

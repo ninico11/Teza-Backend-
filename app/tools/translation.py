@@ -1,7 +1,6 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
-
 load_dotenv()
 
 API_KEY = os.getenv("OPENAI_KEY")
@@ -38,7 +37,7 @@ def translate_message_event(message, requested_language):
 
     return response.choices[0].message.content
 
-def translate_for_snetiment(message):
+def translate_for_sentiment(message):
     output_format = """
     {
         "translated_message": here should be translated message

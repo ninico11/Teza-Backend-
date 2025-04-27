@@ -1,7 +1,6 @@
 from flask import Blueprint, request, jsonify
 import json
 from ..tools.sentiment_analysis import predict_sentiment
-
 sentiment = Blueprint('sentiment', __name__)
 
 @sentiment.route('/predict_sentiment', methods=['POST'])

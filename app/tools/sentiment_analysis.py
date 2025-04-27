@@ -1,9 +1,10 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import transformers
 import torch
 import json
 import torch.nn.functional as F
 from langdetect import detect, DetectorFactory
-from .translation import translate_for_snetiment
+from .translation import translate_for_sentiment
 
 MODEL_DIR = "app/tools/distilbert_sentiment_model"
 tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
@@ -18,7 +19,7 @@ def predict_sentiment(text: str) -> str:
     Returns one of 'negative' | 'neutral' | 'positive'
     """
     if detect(text) != "en": 
-        trans_text = translate_for_snetiment(text)
+        trans_text = translate_for_sentiment(text)
         if not isinstance(trans_text, dict):
                 trans_text = json.loads(trans_text)
         text = trans_text["translated_message"]

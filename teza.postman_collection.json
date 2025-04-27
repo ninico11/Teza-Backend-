@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "5c3e8926-be6c-482f-ab55-f286bff83f06",
+		"name": "teza",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40793033"
+	},
+	"item": [
+		{
+			"name": "Translate Message",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"Salut, numele meu este Ion, incantat de cunostinta.\",\r\n    \"requested_language\": \"Chinese\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/translate_message",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"translate_message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Voice To Text",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Ion/Downloads/127389__acclivity__thetimehascome.wav"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/voice_to_text",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"voice_to_text"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Predict Sentiment",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"messages\": [\"I love this product!\", \"Je déteste les retards.\", \"It's okay\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/predict_sentiment",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"predict_sentiment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

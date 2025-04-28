@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
-API_KEY = os.getenv("OPENAI_KEY")
+API_KEY = os.getenv("API_KEY")
 openai = OpenAI(api_key=API_KEY)
 
 def translate_message_event(message, requested_language):

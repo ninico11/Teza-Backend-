@@ -1,6 +1,8 @@
 from typing import Iterable, List, Tuple
 from collections import Counter
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import torch.nn.functional as F
@@ -8,7 +10,7 @@ import json
 from langdetect import detect, DetectorFactory
 from .translation import translate_for_sentiment
 
-MODEL_DIR = "app/tools/distilbert_sentiment_model"
+MODEL_DIR = os.getenv("MODEL_DIR")
 tokenizer = AutoTokenizer.from_pretrained(MODEL_DIR)
 model     = AutoModelForSequenceClassification.from_pretrained(MODEL_DIR)
 model.eval()

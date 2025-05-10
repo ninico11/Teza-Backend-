@@ -25,6 +25,7 @@ def voice_to_text():
 
     try:
         with open(temp_path, 'rb') as audio_file:
+            print(str(audio_file))
             content = transcribe_audio(audio_file)
             translated_text = translate_message_event(content, requested_language)
             if not isinstance(translated_text, dict):

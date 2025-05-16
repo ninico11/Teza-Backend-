@@ -16,8 +16,9 @@ openai = OpenAI(api_key=API_KEY)
 #     return transcription.text
 
 def transcribe_audio(audio_fp) -> str:
+    print(str(audio_fp))
     response = openai.audio.transcriptions.create(
-        model="whisper-1",
+        model="gpt-4o-transcribe",
         file=audio_fp,
         response_format="text"
     )

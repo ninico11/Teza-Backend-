@@ -3,7 +3,6 @@ from flask import Blueprint, request, jsonify
 from werkzeug.utils import secure_filename
 from ..tools.audio_trans import transcribe_audio
 from ..tools.translation import translate_message_event
-from ..tools.audio_utils import convert_to_wav 
 audio = Blueprint("audio", __name__)
 
 @audio.route("/voice_to_text", methods=["POST"])
